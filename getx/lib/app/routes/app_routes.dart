@@ -10,6 +10,8 @@ abstract class Routes {
   static const TUGAS2 = _Paths.TUGAS2;
   static const BIODATA = _Paths.BIODATA;
   static const FORM = _Paths.FORM;
+  static const REGISTER = _Paths.REGISTER;
+  static const LOGIN = _Paths.LOGIN;
 }
 
 abstract class _Paths {
@@ -21,4 +23,6 @@ abstract class _Paths {
   static const TUGAS2 = '/tugas2';
   static const BIODATA = '/biodata';
   static const FORM = '/form';
+  static const REGISTER = '/register';
+  static const LOGIN = '/login';
 }

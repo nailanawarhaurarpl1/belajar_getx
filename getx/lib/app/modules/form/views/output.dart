@@ -78,9 +78,34 @@ class OutputPage extends StatelessWidget {
               DataCell(Text('Total Harga')),
               DataCell(Text(formController.totalHarga.value.toString())),
             ]),
+            DataRow(cells: [
+              DataCell(Text('Detail Benefits')), // Tambahkan baris baru
+              DataCell(Text(getBenefits())), // Tambahkan baris baru
+            ]),
           ],
         ),
       ),
     );
+  }
+
+  String getBenefits() {
+    String benefits = '';
+    switch (formController.selectedMember.value) {
+      case 'Reguler':
+        benefits = 'Anggota 1 Bulan';
+        break;
+      case 'Gold':
+        benefits = 'Anggota 1 Bulan + Cemilan Gratis';
+        break;
+      case 'Platinum':
+        benefits = 'Anggota 2 Bulan + Cemilan Gratis + Free Wifi';
+        break;
+      case 'VIP':
+        benefits = 'Anggota 3 Bulan + Cemilan Gratis + Free Wifi + Tiket Konser';
+        break;
+      default:
+        benefits = 'Pilih Jenis Member';
+    }
+    return benefits;
   }
 }

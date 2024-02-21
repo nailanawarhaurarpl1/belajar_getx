@@ -101,14 +101,26 @@ class FormView extends GetView<FormController> {
               ),
               SizedBox(height: 16),
               Text(
-                'Payment:',
+                'Total Harga:',
                 style: TextStyle(fontSize: 16),
               ),
               SizedBox(height: 8),
               Obx(
                 () => Text(
-                  'Harga Member: ${controller.totalHarga.value}',
+                  '${controller.totalHarga.value}',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Detail Benefits:',
+                style: TextStyle(fontSize: 16),
+              ),
+              SizedBox(height: 8),
+              Obx(
+                () => Text(
+                  '${getMembershipInfo()}',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold), // Tambahkan properti fontWeight di sini
                 ),
               ),
               SizedBox(height: 50),
@@ -128,5 +140,26 @@ class FormView extends GetView<FormController> {
         ),
       ),
     );
+  }
+
+  String getMembershipInfo() {
+    String membershipInfo = '';
+    switch (controller.selectedMember.value) {
+      case 'Reguler':
+        membershipInfo = 'Anggota 1 Bulan';
+        break;
+      case 'Gold':
+        membershipInfo = 'Anggota 1 Bulan + Cemilan Gratis';
+        break;
+      case 'Platinum':
+        membershipInfo = 'Anggota 2 Bulan + Cemilan Gratis + Free Wifi';
+        break;
+      case 'VIP':
+        membershipInfo = 'Anggota 3 Bulan + Cemilan Gratis + Free Wifi + Tiket Konser';
+        break;
+      default:
+        membershipInfo = '';
+    }
+    return membershipInfo;
   }
 }

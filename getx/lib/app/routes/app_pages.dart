@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:getx/app/middlewares/auth_middleware.dart';
 
 import '../modules/biodata/bindings/biodata_binding.dart';
 import '../modules/biodata/views/biodata_view.dart';
@@ -8,8 +9,12 @@ import '../modules/form/bindings/form_binding.dart';
 import '../modules/form/views/form_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/login/bindings/login_binding.dart';
+import '../modules/login/views/login_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/register/bindings/register_binding.dart';
+import '../modules/register/views/register_view.dart';
 import '../modules/tugas1/bindings/tugas1_binding.dart';
 import '../modules/tugas1/views/tugas1_view.dart';
 
@@ -27,6 +32,7 @@ class AppPages {
       name: _Paths.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: _Paths.PROFILE,
@@ -52,6 +58,16 @@ class AppPages {
       name: _Paths.FORM,
       page: () => const FormView(),
       binding: FormBinding(),
+    ),
+    GetPage(
+      name: _Paths.REGISTER,
+      page: () => const RegisterView(),
+      binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOGIN,
+      page: () => const LoginView(),
+      binding: LoginBinding(),
     ),
   ];
 }
